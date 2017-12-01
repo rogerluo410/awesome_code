@@ -1,0 +1,14 @@
+<div class="row sub-header">
+<div class="row sub-header">
+  <div class="col-md-12">
+    <h5><a href="<%= admin_patients_path %>">Patients&gt;&gt;</a> Edit</h5>
+  </div>
+</div>
+
+<%= simple_form_for @patient, url: admin_patient_path do |f| %>
+  <%= f.input :email, disabled: true %>
+  <%= f.input :first_name, type: :text %>
+  <%= f.input :last_name, type: :text %>
+  <%= f.input :phone, type: :text %>
+  <%= f.submit "Update", class: "btn btn-primary"%>
+<% end %>

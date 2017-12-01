@@ -1,0 +1,89 @@
+<article class="panel panel-default">
+  <header class="panel-heading">
+    <h5><a href="<%= admin_refunds_path %>">Refund requests&gt;&gt;</a> <%= @refund_request.get_appointment_brief.html_safe %></h5>
+  </header>
+
+  <section class="panel-body">
+    <article class="panel panel-info">
+      <header class="panel-heading">
+        Charge Info
+      </header>
+      <section class="panel-body">
+        <div class="row">
+         <div class="col-md-4">
+          <label>Stripe customer ID: </label>
+          <%= @refund_request.charge_event_log&.stripe_customer_id %>
+         </div>
+         <div class="col-md-8">
+          <label>Stripe charge ID: </label>
+          <%= @refund_request.charge_event_log&.stripe_charge_id %>
+         </div>
+        </div> 
+        <div class="row">
+         <div class="col-md-4">
+          <label>Charge amount: </label>
+          <%= @refund_request.charge_event_log&.amount %>
+         </div>
+         <div class="col-md-4">
+           <label>Charge status: </label>
+           <%= @refund_request.charge_event_log&.status %>
+         </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <label>Patient email: </label>
+            <%= @refund_request.appointment&.patient&.email %>
+          </div>
+          <div class="col-md-4">
+            <label>Card last four: </label>
+            <%= @refund_request.charge_event_log&.card_last4 %>
+          </div>
+        </div>
+      </section>
+    </article>
+    
+    <article class="panel panel-info">
+      <header class="panel-heading">
+        Transfer Info
+      </header>
+      <section class="panel-body">
+      <div class="row">
+        <div class="col-md-4">
+          <label>Transfer status: </label>
+          <%= @refund_request.transfer_event_log&.status %>
+        </div>
+        <div class="col-md-8">
+          <label>Stripe transfer ID: </label>
+          <%= @refund_request.transfer_event_log&.stripe_transfer_id %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <label>Transfer amount: </label>
+          <%= @refund_request.transfer_event_log&.amount %>
+        </div>
+        <div class="col-md-4">
+          <label>Doctor email: </label>
+          <%= @refund_request.appointment&.doctor&.email %>
+        </div>
+      </div>
+      </section>
+    </article>
+
+    <article class="panel panel-info">
+      <div class="row" style="padding-left: 15px; padding-bottom: 15px;">
+        <div class="col-md-4">
+          <%= simple_form_for @refund_request, url: admin_refund_path, html: { style: "margin-top: 18px;" } do |f| %>
+          <%= f.input :'Refund Status' do %>
+            <%= f.select :status, options_for_select(RefundRequest.status.values, @refund_request.status) %>
+          <% end %>
+          <%= f.input :reason, type: :text, input_html: { :maxlength => 17 } %>
+          <%= f.submit "Update", class: "btn btn-primary"%>
+          <% end %>
+        </div>
+      </div> 
+    </article> 
+  </section>
+  <footer class="panel-footer">
+  </footer>
+</article>

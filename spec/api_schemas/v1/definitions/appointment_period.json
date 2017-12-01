@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "start_time": {
+      "type": "string"
+    },
+    "end_time": {
+      "type": "string"
+    },
+    "estimation_time": {
+      "type": ["string", "null"]
+    },
+    "price": {
+      "type": "number"
+    },
+    "remain_slots": {
+      "type": "number"
+    },
+    "booked_slots": {
+      "type": "number"
+    }
+  }
+}

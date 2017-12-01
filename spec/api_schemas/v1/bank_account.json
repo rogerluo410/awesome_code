@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "userId": {"type": "integer"},
+      "accountId": {"type": "string"},
+      "country": {"type": "string"},
+      "currency": {"type": "aud"},
+      "accountHolderName": {"type": "string"},
+      "accountHolderType": {"type": "string"},
+      "bankName": {"type": "string"},
+      "last4": {"type": "string"},
+      "routingNumber": {"type": "string"}
+    }
+  }
+}

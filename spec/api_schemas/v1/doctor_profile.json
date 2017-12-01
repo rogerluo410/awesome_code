@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "integer"},
+        "name": {"type": "string"},
+        "type": {"type": "string"},
+        "avatar_url": {"type": "string"},
+        "time_zone": {"type": "string"},
+        "specialty_name": {"type": ["string", null]},
+        "is_available_now": {"type": "bool"},
+        "years_experience": {"type": "string"},
+        "total_patient_count": {"type": "number"},
+        "created_at": {"type": "string"},
+        "bio_info": {"type": ["string", null]}
+      }
+    }
+  }
+}

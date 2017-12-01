@@ -1,0 +1,98 @@
+<article class="panel panel-default">
+  <header class="panel-heading">
+    <%= @doctor.name %> Infos (approved: <input type="checkbox" name="approved-switch-checkbox" <%= "checked" if @doctor.doctor_profile.try(:approved) %> data-id="<%= @doctor.id %>">)
+  </header>
+
+  <section class="panel-body">
+    <div class="row">
+      <div class="col-md-1">
+        <img src="<%= @doctor.avatar_url%>" width="70" hegith="70">
+
+      </div>
+      <div class="col-md-11">
+        <article class="panel panel-default">
+          <header class="panel-heading">
+            Base Infos
+          </header>
+           <section class="panel-body">
+            <div class="col-md-4">
+              <label>First Name: </label>
+              <%= @doctor.first_name %>
+            </div>
+            <div class="col-md-4">
+              <label>Last Name: </label>
+              <%= @doctor.last_name %>
+            </div>
+           <div class="col-md-4">
+             <label>Email: </label>
+             <%= @doctor.email %>
+           </div>
+           <div class="col-md-4">
+             <label>Phone: </label>
+             <%= @doctor.phone %>
+           </div>
+           <div class="col-md-4">
+             <label>Years Experience: </label>
+             <%= @doctor.doctor_profile.try(:years_experience) %>
+           </div>
+           <div class="col-md-4">
+             <label>Provider Number:</label>
+             <%= @doctor.doctor_profile.try(:provider_number) %>
+           </div>
+           </section>
+        </article>
+      </div>
+    </div>
+    <article class="panel panel-info">
+      <header class="panel-heading">
+        Bank account info
+      </header>
+      <section class="panel-body">
+        <div class="col-md-2">
+          <label>Country: </label>
+          <%= @doctor.bank_account.try(:country) %>
+        </div>
+        <div class="col-md-3">
+          <label>Routing Number: </label>
+          <%= @doctor.bank_account.try(:routing_number) %>
+        </div>
+        <div class="col-md-2">
+          <label>Last4: </label>
+          <%= @doctor.bank_account.try(:last4) %>
+        </div>
+        <div class="col-md-5">
+          <label>Stripe account id: </label>
+          <%= @doctor.bank_account.try(:account_id) %>
+        </div>
+      </section>
+    </article>
+    <article class="panel panel-info">
+      <header class="panel-heading">
+        Bio
+      </header>
+      <section class="panel-body">
+        <%= @doctor.doctor_profile.try(:bio_info) %>
+      </section>
+    </article>
+
+    <article class="panel panel-info">
+      <header class="panel-heading">
+        Avaiable time during week(<label>Timezone:</label> <%= @doctor.local_timezone %>)
+      </header>
+      <section class="panel-body">
+        <% Doctor.week_days.each do |week_day|%>
+          <div class="col-md-1">
+            <header class="text-center">
+              <span class="text-info"><%= week_day.to_s.titleize %></span>
+            </header>
+            <% @doctor.get_appointment_settings_by_week_day(week_day).each do |available_time| %>
+              <span class="label label-primary"><%= available_time.time_range %></span>
+            <% end %>
+          </div>
+        <% end %>
+      </section>
+    </article>
+  </section>
+  <footer class="panel-footer">
+  </footer>
+</article>

@@ -1,0 +1,82 @@
+<%= form_for @patient, url: patient_profile_url(current_user.username), method: :patch, html: {multipart: true} do |f| %>
+    <div class="doc-setting-panel u-clearFix">
+      <div class="doc-setting-panel-header">
+        PROFILE
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="doc-setting-panel-imgBoxView">
+            <div class="imgBox">
+              <%= image_tag(f.object.avatar_url, alt: "Logo", width: 210, height: 210, style: 'width: 100%; height: 100%;') %>
+            </div>
+              <div class="btnBox">
+                <%= f.file_field :image, class: "form-control-file" %>
+              </div>
+              </div></div>
+              <div class="col-sm-9">
+              <div class=" row">
+                <h5 class="col-sm-12">Profile</h5>
+                <div class="form-group col-xs-6 col-md-4">
+                  <%= f.label :email %>
+                  <%= f.email_field :email, class: "form-control u-input", required: true %>
+                </div>
+                <div class="form-group col-xs-6 col-md-4">
+                  <%= f.label :username %>
+                  <%= f.text_field :username, class: "form-control u-input", maxlength: 30, :required => true %>
+                </div>
+                <div class="form-group col-xs-6 col-md-4">
+                  <%= f.label :first_name %>
+                  <%= f.text_field :first_name, class: "form-control u-input", maxlength: 30  %>
+                </div>
+                <div class="form-group col-xs-6 col-md-4">
+                  <%= f.label :last_name %>
+                  <%= f.text_field :last_name, class: "form-control u-input", maxlength: 30  %>
+                </div>
+                <div class="form-group col-xs-6 col-md-4">
+                  <%= f.label :phone %>
+                  <%= f.text_field :phone, class: "form-control u-input"  %>
+                </div>
+                <div class="form-group col-xs-6 col-md-4">
+                  <%= f.label :local_timezone %>
+                  <%= f.select :local_timezone, options_for_select(UtilsTimeZone.all.map { |s| [s[:name], s[:identifier]] }, @patient.local_timezone), {prompt: "Please select"}, class: "form-control u-input" %>
+                </div>
+                <%= f.fields_for :patient_profile do |ff| %>
+                  <div class="form-group col-xs-6 col-md-4">
+                    <%= ff.label :birthday %>
+                    <%= ff.date_field :birthday, class: "form-control u-input" %>
+                  </div>
+
+                  <div class="form-group col-xs-6 col-md-4">
+                     <%= ff.label :sex %>
+                     <%= ff.select :sex, options_for_select([["male", "male"] ,["female", "female"]], @patient.patient_profile.sex), {prompt: "Please select"}, class: "form-control u-input" %>
+                  </div>
+                <% end %>
+
+                <h5 class="col-sm-12">Address</h5>
+                <%= f.fields_for :address, @address do |ff| %>
+                  <%= render 'user/shared/address_form', ff: ff %>
+                <% end %>
+
+              <h5 class="col-sm-12">Subscribe notify</h5>
+                <div class="col-sm-12">
+                  <label class="checkbox-inline">
+                    <%= f.check_box :notify_sms %> SMS
+                  </label>
+                  <label class="checkbox-inline">
+                    <%= f.check_box :notify_email %> Email
+                  </label>
+                  <label class="checkbox-inline">
+                    <%= f.check_box :notify_system %> System
+                  </label>
+                </div>
+
+                <div class="col-sm-12">
+                  <div class="btnBox mt-1">
+                    <%= f.submit "Save", class: "btn doc-btn is-green" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+<% end %>

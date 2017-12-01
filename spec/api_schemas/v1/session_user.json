@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "integer"},
+        "name": {"type": "string"},
+        "type": {"type": "string"},
+        "avatar_url": {"type": "string"},
+        "time_zone": {"type": "string"}
+      }
+    }
+  }
+}

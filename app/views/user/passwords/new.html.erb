@@ -1,0 +1,18 @@
+<div class="doc-login doc-forgetPwd is-padding">
+  <div class="">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="doc-login-title">Retrieve your password</div>
+        <div>
+          <%= f.email_field :email, autofocus: true, class: "form-control input", placeholder: "Enter your registed email address"%>
+        </div>
+        <div>
+          <%= f.submit 'Send', class: "btn m-btn is-green" %>
+        </div>
+        <div class="doc-login-logWith u-clearFix">
+          <div class="centerText forgetPwd">Will send you rest password instructions</div>
+        </div>
+      <% end %>
+  </div>
+</div>

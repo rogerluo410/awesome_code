@@ -1,0 +1,9 @@
+<div class="row sub-header">
+  <div class="col-md-12">
+    <ul class="navbar nav nav-tabs nav-pills nav-justified">
+      <li role="presentation" class="<%= 'active' if nav_users_active?(:doctors)%>"><a href="<%= admin_doctors_path %>">Doctors</a></li>
+      <li role="presentation" class="<%= 'active' if nav_users_active?(:patients)%>"><a href="<%= admin_patients_path %>">Patients</a></li>
+      <li role="presentation" class="<%= 'active' if nav_users_active?(:admins)%>"><a href="<%= admin_admins_path%>">Admins</a></li>
+    </ul>
+  </div>
+</div>

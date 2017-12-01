@@ -1,0 +1,33 @@
+<%= render 'admin/shared/users_header' %>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th><%= User.human_attribute_name(:name) %></th>
+        <th><%= User.human_attribute_name(:email) %></th>
+        <th><%= User.human_attribute_name(:phone) %></th>
+        <th><%= User.human_attribute_name(:local_timezone) %></th>
+        <th><%= DoctorProfile.human_attribute_name(:approved) %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="patient_appointment_body">
+      <% @doctors.each do |doctor| %>
+        <tr>
+          <td><%= doctor.name %></td>
+          <td><%= doctor.email %></td>
+          <td><%= doctor.phone %></td>
+          <td><%= doctor.local_timezone %></td>
+          <td><input type="checkbox" name="approved-switch-checkbox" <%= "checked" if doctor.doctor_profile.try(:approved) %> data-id="<%= doctor.id %>"></td>
+          <td><%= link_to 'edit', edit_admin_doctor_path(doctor), class: "btn btn-xs btn-primary"%>
+              <%= link_to 'detail', admin_doctor_path(doctor), class: "btn btn-xs btn-primary"%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <%= paginate @doctors %>
+  </div>
+</div>

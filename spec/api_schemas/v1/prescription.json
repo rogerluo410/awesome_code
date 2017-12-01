@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+        "id": {"type": "integer"},
+        "appointment_id": {"type": "integer"},
+        "pharmacy_id": {"type": "integer"},
+        "file": {"type": ["string", "null"] },
+        "status": {"type": "string"},
+        "created_at": {"type": "string"},
+        "updated_at": {"type": "string"}
+    }
+  }
+}

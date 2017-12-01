@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {"type": "number"},
+    "status": {"type": "string"},
+    "doctor_id": {"type": "number"},
+    "doctor_name": {"type": "string"},
+    "doctor_email": {"type": "string"},
+    "doctor_specialty_name": {"type": ["string", "null"]},
+    "doctor_avatar_url": {"type": "string"},
+    "period_start_time": {"type": "string"},
+    "period_end_time": {"type": "string"},
+    "queue_before_me": {"type": "string", "type": "number"},
+    "estimate_consult_time": {"type": "string"},
+    "consultation_fee": {"type": "float"},
+    "paid": {"type": "boolean"},
+    "survey_id": {"type": "number"},
+    "reason": {"type": "string"}
+  }
+}

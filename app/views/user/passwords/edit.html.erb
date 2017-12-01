@@ -1,0 +1,23 @@
+<div class="doc-login doc-forgetPwd is-padding">
+  <div class="">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+        <%= devise_error_messages! %>
+        <%= f.hidden_field :reset_password_token %>
+        <div class="doc-login-title">Change your password</div>
+        <div class="doc-signup-item">
+          <label for="doctor_password">New Password (<%= @minimum_password_length %> characters minimum)</label>
+          <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+        </div>
+        <div class="doc-signup-item">
+          <label for="doctor_password">Confirm new Password</label>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+        </div>
+        <div>
+          <%= f.submit 'Save', class: "btn m-btn is-green" %>
+        </div>
+        <div class="doc-login-logWith u-clearFix">
+          <div class="centerText forgetPwd">Will change your old password</div>
+        </div>
+      <% end %>
+  </div>
+</div>

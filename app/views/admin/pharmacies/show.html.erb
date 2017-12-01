@@ -1,0 +1,50 @@
+<article class="panel panel-default">
+  <header class="panel-heading">
+    <h5><a href="<%= admin_pharmacies_path %>">Pharmacy&gt;&gt;</a> <%= @pharmacy.company_name %></h5>
+  </header>
+
+   <section class="panel-body">
+     <div class="col-md-4">
+      <label>Website: </label>
+      <a href="<%= @pharmacy.website %>" target="_blank" ><%= @pharmacy.website %></a>
+     </div>
+     <div class="col-md-4">
+      <label>Mobile: </label>
+      <%= @pharmacy.mobile %>
+     </div>
+     <div class="col-md-4">
+       <label>Fax: </label>
+       <%= @pharmacy.fax %>
+     </div>
+     <div class="col-md-4">
+       <label>Abn: </label>
+       <%= @pharmacy.abn %>
+     </div>
+     <div class="col-md-4">
+       <label>Postal address: </label>
+       <%= @pharmacy.postal_address %>
+     </div>
+     <div class="col-md-4">
+       <label>Email: </label>
+       <%= @pharmacy.email %>
+     </div>
+     <div class="col-md-4">
+       <label>Toll free: </label>
+       <%= @pharmacy.toll_free %>
+     </div>
+     <div class="col-md-4">
+       <label>Latitude:</label>
+       <%= @pharmacy.latitude %>
+     </div>
+     <div class="col-md-4">
+       <label>Longitude: </label>
+       <%= @pharmacy.longitude %>
+     </div>
+     <div class="col-md-4">
+       <label>Created at: </label>
+       <%= @pharmacy.created_at %>
+     </div>
+   </section>
+  <footer class="panel-footer">
+  </footer>
+</article>

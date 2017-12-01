@@ -1,0 +1,47 @@
+<div class="row sub-header">
+  <div class="col-md-12">
+    <div class="col-md-11" style="padding-left: 0px;">
+      <h2>Pharmacies</h2>
+    </div>
+    <div class="col">
+      <%= link_to 'Create New', new_admin_pharmacy_path, class: "btn btn-xs btn-primary", style: "
+    margin-top: 30px;" %>
+    </div>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Company Name</th>
+        <th>Suburb</th>
+        <th>Code</th>
+        <th>Phone</th>
+        <th>State</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="patient_appointment_body">
+      <% @pharmacies.each do | pharmacy | %>
+        <tr>
+          <td><%= pharmacy.category %></td>
+          <td><%= pharmacy.company_name %></td>
+          <td><%= pharmacy.suburb %></td>
+          <td><%= pharmacy.code %></td>
+          <td><%= pharmacy.phone %></td>
+          <td><%= pharmacy.state %></td>
+          <td><%= link_to 'edit', edit_admin_pharmacy_path(pharmacy), class: "btn btn-xs btn-primary"%>
+              <%= link_to 'detail', admin_pharmacy_path(pharmacy),  class: "btn btn-xs btn-info"%>
+              <%= link_to 'delete', admin_pharmacy_path(pharmacy),  class: "btn btn-xs btn-danger",
+              method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <%= paginate @pharmacies %>
+  </div>
+</div>

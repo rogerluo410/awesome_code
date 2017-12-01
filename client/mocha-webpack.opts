@@ -1,0 +1,4 @@
+--webpack-config webpack.config.js
+--require source-map-support/register
+--require test/support/common
+test/**/*.test.js

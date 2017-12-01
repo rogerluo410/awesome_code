@@ -1,0 +1,30 @@
+<%= render 'admin/shared/users_header' %>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th><%= Admin.human_attribute_name(:name) %></th>
+        <th><%= Admin.human_attribute_name(:email) %></th>
+        <th><%= Admin.human_attribute_name(:phone) %></th>
+        <th><%= Admin.human_attribute_name(:local_timezone) %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="patient_appointment_body">
+      <% @admins.each do |admin| %>
+        <tr>
+          <td><%= admin.name %></td>
+          <td><%= admin.email %></td>
+          <td><%= admin.phone %></td>
+          <td><%= admin.local_timezone %></td>
+          <td><%= link_to 'edit', edit_admin_admin_path(admin), class: "btn btn-xs btn-primary"%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <%= paginate @admins %>
+  </div>
+</div>

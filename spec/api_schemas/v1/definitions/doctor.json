@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "name": {
+      "type": "string"
+    },
+    "specialty_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "avatar_url": {
+      "type": "string"
+    },
+    "bio_info": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "years_experience": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "specialty_id": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "is_available_now": {
+      "type": "boolean"
+    },
+    "total_patient_count": {
+      "type": "number"
+    },
+    "total_available_slots": {
+      "type": "number"
+    },
+    "appointment_periods": {
+      "type": "array",
+      "items": {
+        "$ref": "./appointment_setting.json"
+      }
+    }
+  }
+}

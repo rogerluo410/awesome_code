@@ -1,0 +1,2 @@
+class FcmSendError < StandardError
+end

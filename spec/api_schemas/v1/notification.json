@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "id": {"type": "number"},
+      "title": {"type": "string"},
+      "body": {"type": "string"},
+      "is_read": {"type": "bool"},
+      "resource_type": {"type": "string"},
+      "resource_id": {"type": "number"},
+      "n_type": {"type": "string"}
+    }
+  }
+}

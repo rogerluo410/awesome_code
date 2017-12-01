@@ -1,0 +1,24 @@
+
+{
+  "type": "object",
+  "properties": {
+    "data": {
+        "id": {"type": "integer"},
+        "category": {"type": "string"},
+        "company_name": {"type": "string"},
+        "street": {"type": "string"},
+        "suburb": {"type": "string"},
+        "state": {"type": "string"},
+        "code": {"type": "integer"},
+        "email": {"type": "string"}
+    },
+    "meta": {
+        "next_page": {"type": "integer"},
+        "prev_page": {"type": "integer"},
+        "current_page": {"type": "integer"},
+        "total_pages": {"type": "integer"},
+        "total_count": {"type": "integer"}
+    },
+    "links": {}
+  }
+}

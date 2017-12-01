@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "badge": {
+      "type": "number"
+    },
+    "next_cursor": {
+      "type": [
+        "number",
+        "null"
+      ]
+    }
+  }
+}
+

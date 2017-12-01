@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "id": {
+        "type":
+          ["number", "null"]
+        },
+      "suburb": {
+        "type":
+          ["string", "null"]
+      },
+      "full_name": {
+        "type":
+          ["string", "null"]
+      },
+      "age": {
+        "type":
+          ["number", "null"]
+      },
+      "gender": {
+        "type":
+          ["string"]
+      },
+      "street_address": {
+        "type":
+          ["string", "null"]
+      },
+      "weight": {
+        "type":
+          ["number", "null"]
+      },
+      "height": {
+        "type":
+          ["number", "null"]
+      },
+      "medical_condition": {
+        "type":
+          ["string", "null"]
+      },
+      "medications": {
+        "type":
+          ["string", "null"]
+      },
+      "reason": {
+        "type":
+          ["string", "null"]
+      },
+      "reason_id": {
+        "type":
+          ["number", "null"]
+      },
+      "allergies": {
+        "type":
+          ["string", "null"]
+      }
+    }
+  }
+}

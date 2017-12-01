@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shinetech Demo</title>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/navbar' %>
+
+    <div class="doc-docList u-clearFix" id="wrap">
+      <div class="u-container u-clearFix">
+        <%= render 'layouts/flash' %>
+        <%= yield %>
+      </div>
+    </div>
+
+    <%= render 'layouts/footer'%>
+  </body>
+</html>

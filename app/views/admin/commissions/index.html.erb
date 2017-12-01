@@ -1,0 +1,28 @@
+<div class="row sub-header">
+  <div class="col-md-12">
+    <h2>Commissions</h2>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Time Period(Base doctor timezone)</th>
+        <th>Price</th>
+        <th>Commission</th>
+        <th>%(commission/price)</th>
+      </tr>
+    </thead>
+    <tbody id="patient_appointment_body">
+      <% @commissions.each do |commission| %>
+        <tr>
+          <td><%= commission[:start_time] %>-<%= commission[:end_time] %></td>
+          <td><%= number_to_currency commission[:price] %></td>
+          <td><%= number_to_currency commission[:application_fee] %></td>
+          <td><%= number_to_percentage(100*commission[:application_fee]/commission[:price].to_f, precision: 2) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

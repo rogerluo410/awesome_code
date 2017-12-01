@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shinetech Demo</title>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Open+Sans' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+  </head>
+  <body>
+    <div id="root"></div>
+    <% if user_signed_in? -%>
+      <script>
+        window.INIT_STATE = {
+          auth: {
+            isSignedIn: true,
+            user: <%=raw Api::V1::SessionUserSerializer.new(current_user).to_json(root: nil) %>
+          }
+        }
+      </script>
+      <script src="https://media.twiliocdn.com/sdk/js/common/v0.1/twilio-common.min.js"></script>
+      <script src="https://media.twiliocdn.com/sdk/js/conversations/releases/0.13.5/twilio-conversations.min.js"></script>
+    <% end -%>
+    <%= javascript_include_tag 'application-react' %>
+  </body>
+</html>

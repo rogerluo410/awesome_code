@@ -1,0 +1,16 @@
+<div class="doc-Header doc-Header--mainView u-clearFix">
+  <div class="doc-Header-logo">
+    <a href="/"><img src="/static/image/logo.png" alt="Shinetech Demo" /></a>
+  </div>
+  <% unless user_signed_in? %>
+    <%= render 'layouts/nav_guest'%>
+  <% end %>
+
+  <% if current_patient.present? %>
+    <%= render 'layouts/nav_patient'%>
+  <% end %>
+
+  <% if current_doctor.present? %>
+    <%= render 'layouts/nav_doctor'%>
+  <% end %>
+</div>

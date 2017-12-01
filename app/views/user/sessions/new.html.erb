@@ -1,0 +1,37 @@
+<div class="doc-login">
+  <div class="">
+    <div class="doc-login-title"><%= 'Doctor' if params[:role] == 'doctor' %> Log in</div>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div>
+        <%= f.email_field :email, value: params[:email], autofocus: true, class: "form-control", placeholder: 'User Name/Email' %>
+      </div>
+      <div class="doc-login-pws">
+        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: 'Password'  %>
+        <a href="<%= new_password_path(resource_name) %>">
+          Forgot ?
+        </a>
+      </div>
+      <div>
+        <%= f.submit "Login", class: "btn m-btn is-green" %>
+      </div>
+      <div class="doc-login-logWith u-clearFix">
+        <div class="lineBorder"></div>
+        <div class="centerText">Or log in with</div>
+      </div>
+      <% unless params[:role] == 'doctor' %>
+        <div class="doc-login-share">
+          <a class="login-google" href="<%= omniauth_authorize_path(resource_name, :google_oauth2) %>"><i class="fa fa-google-plus"></i></a>
+          <a class="login-facebook" href="<%= omniauth_authorize_path(resource_name, :facebook) %>"><i class="fa fa-facebook-official"></i></a>
+          <a class="login-linkedin" href="<%= omniauth_authorize_path(resource_name, :linkedin) %>"><i class="fa fa-linkedin"></i></a>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="doc-login-link">
+      <% if params[:role] == 'doctor' %>
+        <a href="/users/sign_in">Your are Patient? Login here</a>
+      <% else %>
+        <a href="/users/sign_in?role=doctor">Your are Doctor? Login here</a>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+class FcmConfigError < StandardError
+end

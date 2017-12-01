@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "next_page": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "prev_page": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "current_page": {
+      "type": "number"
+    },
+    "total_pages": {
+      "type": "number"
+    },
+    "total_count": {
+      "type": "number"
+    }
+  }
+}
+

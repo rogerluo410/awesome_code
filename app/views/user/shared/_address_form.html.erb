@@ -1,0 +1,24 @@
+<div class="form-group col-xs-8">
+  <%= ff.label :street_address %>
+  <%= ff.text_field :street_address, class: "form-control u-input"  %>
+</div>
+
+<div class="form-group col-xs-4">
+  <%= ff.label :suburb %>
+  <%= ff.text_field :suburb, class: "form-control u-input"  %>
+</div>
+
+<div class="form-group col-xs-6 col-md-4">
+  <%= ff.label :state %>
+  <%= ff.select :state, Carmen::Country.coded("AU").subregions.map{|e| e.name}, {prompt: "Please select"} , class: "form-control u-input"  %>
+</div>
+
+<div class="form-group col-xs-6 col-md-4">
+  <%= ff.label :postcode %>
+  <%= ff.text_field :postcode, class: "form-control u-input"  %>
+</div>
+
+<div class="form-group col-xs-4">
+  <%= ff.label :country %>
+  <%= ff.select :country, Carmen::Country.all.select{|c| %w{AU}.include?(c.code)}, {} , class: "form-control u-input"  %>
+</div>

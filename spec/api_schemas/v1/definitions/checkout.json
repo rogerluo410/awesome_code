@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {"type": "number"},
+    "card_last4": {"type": "string"},
+    "brand": {"type": "string"},
+    "exp_month": {"type": "number"},
+    "exp_year": {"type": "number"},
+    "funding": {"type": "string"},
+    "default": {"type": "boolean"}
+  }
+}

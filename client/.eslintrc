@@ -1,0 +1,15 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb"],
+  "rules": {
+    "semi": ["error", "never"],
+    "no-use-before-define": ["error", { "functions": false }],
+    "new-cap": "off",
+    "global-require": "off",
+    "no-shadow": "off",
+    "import/no-unresolved": "off"
+  },
+  "globals": {
+    "Twilio": true,
+  }
+}

@@ -1,0 +1,44 @@
+<div class="row sub-header">
+  <div class="col-md-12">
+    <div class="col-md-11" style="padding-left: 0px;">
+      <h2>Refund Requests</h2>
+    </div>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Appointment start time</th>
+        <th>Appointment end time</th>
+        <th>Doctor name</th>
+        <th>Patient name</th>
+        <th>Refund request status</th>
+        <th>Reason</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="patient_appointment_body">
+        <% @refund_requests.each_with_index do | refund_request, index | %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= refund_request.get_appointment_start_time %></td>
+            <td><%= refund_request.get_appointment_end_time %></td>
+            <td><%= refund_request.appointment&.doctor&.name %></td>
+            <td><%= refund_request.appointment&.patient&.name %></td>
+            <td><%= refund_request.status %></td>
+            <td><%= refund_request.reason.presence || "No reason." %></td>
+            <td><%= link_to 'edit', edit_admin_refund_path(refund_request), class: "btn btn-xs btn-primary"%></td>
+          </tr>
+        <% end %>
+    </tbody>
+  </table>
+  <% if 0 == @refund_requests.size %>
+    <p style="text-align: center; padding-top: 40px;">No refund requests</p>
+  <% end %>
+  <div class="text-center">
+    <%= paginate @refund_requests %>
+  </div>
+</div>

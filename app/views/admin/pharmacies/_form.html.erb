@@ -1,0 +1,19 @@
+<%= simple_form_for [:admin, @pharmacy] do |f| %>
+  <%= f.input :category, as: :select, collection: Pharmacy.categories.keys, include_blank: false%>
+  <%= f.input :company_name, type: :text %>
+  <%= f.input :street, type: :text %>
+  <%= f.input :suburb, type: :text %>
+  <%= f.input :code, type: :text %>
+  <%= f.input :phone, type: :text %>
+  <%= f.input :website, type: :text %>
+  <%= f.input :mobile, type: :text %>
+  <%= f.input :toll_free, type: :text %>
+  <%= f.input :fax, type: :text %>
+  <%= f.input :abn, type: :text %>
+  <%= f.input :postal_address, type: :text %>
+  <%= f.input :email, type: :text %>
+  <%= f.input :latitude, type: :text %>
+  <%= f.input :longitude, type: :text %>
+  <%= f.input :state, as: :select, collection: Pharmacy.states.keys, include_blank: false %>
+  <%= f.button :submit %>
+<% end %>
