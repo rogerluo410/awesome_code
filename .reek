@@ -1,0 +1,26 @@
+IrresponsibleModule:
+  enabled: false
+
+TooManyStatements:
+  max_statements: 7
+
+"config":
+  UncommunicativeVariableName:
+    enabled: false
+
+"db/migrate":
+  FeatureEnvy:
+    enabled: false
+  TooManyStatements:
+    enabled: false
+  UncommunicativeVariableName:
+    enabled: false
+
+"app/jobs":
+  FeatureEnvy:
+    enabled: false
+
+"spec":
+  # RSpec tests always have some helper functions and they should be valid
+  UtilityFunction:
+    enabled: false

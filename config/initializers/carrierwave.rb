@@ -1,4 +1,4 @@
-# CarrierWave.configure do |config|
+CarrierWave.configure do |config|
 #   # config.fog_provider = 'fog/aws'
 #   # config.fog_credentials = {
 #   #   provider:              'AWS',                                         # required
@@ -9,4 +9,4 @@
 #   # config.fog_directory = "#{ENV['AWSBucketName']}-#{Rails.env}"
 #   # config.fog_public     = false                                            # optional, defaults to true
 #   # config.fog_attributes = { 'Cache-Control' => "max-age=#{365.day.to_i}" } # optional, defaults to {}
-# end
+end
