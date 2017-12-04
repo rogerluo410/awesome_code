@@ -6,18 +6,18 @@ class PrescriptionFileUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
   # Choose what kind of storage to use for this uploader:
-  if Rails.env.test?
+  # if Rails.env.test?
     storage :file
     enable_processing = false
     def store_dir
       "uploads/#{model.class.to_s.underscore}/#{model.id}"
     end
-  else
-    storage :fog
-    def store_dir
-      "#{model.class.to_s.underscore}/#{model.id}"
-    end
-  end
+  # else
+  #   storage :fog
+  #   def store_dir
+  #     "#{model.class.to_s.underscore}/#{model.id}"
+  #   end
+  # end
 
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

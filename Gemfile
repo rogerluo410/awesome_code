@@ -40,7 +40,7 @@ gem 'elasticsearch-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 
-gem "fog-aws", '2.0.0'
+# gem "fog-aws", '2.0.0'
 
 gem 'carmen'
 gem 'carmen-rails', '~> 1.0.0'
@@ -71,6 +71,7 @@ gem 'dry-validation'
 
 # Monitoring performance
 gem 'newrelic_rpm'
+gem 'rails_12factor', group: :production
 
 group :development, :test, :staging do
   gem 'pry-rails', '~> 0.3.4'

@@ -5,18 +5,18 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
   # Choose what kind of storage to use for this uploader:
-  if Rails.env.test? or Rails.env.development?
+  # if Rails.env.test? or Rails.env.development?
     storage :file
     enable_processing = false
     def store_dir
       "uploads/#{model.class.to_s.underscore}/#{model.id}"
     end
-  else
-    storage :fog
-    def store_dir
-      "#{model.class.to_s.underscore}/#{model.id}"
-    end
-  end
+  # else
+  #   storage :fog
+  #   def store_dir
+  #     "#{model.class.to_s.underscore}/#{model.id}"
+  #   end
+  # end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
