@@ -1,6 +1,6 @@
 module Devices
   class Unregister
-    include Serviceable
+    # include Serviceable
 
     def initialize(user, params)
       @user = user
