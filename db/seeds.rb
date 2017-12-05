@@ -1,5 +1,5 @@
 if Rails.env.production?
-
+  require 'factory_girl_rails'
   # require Rails.root.join("db/seeds_basic").to_s
   require Rails.root.join("db/seeds_development").to_s
 
