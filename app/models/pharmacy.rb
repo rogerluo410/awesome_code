@@ -1,5 +1,5 @@
 class Pharmacy < ApplicationRecord
-  # include Searchable
+  include Searchable
 
   default_scope { order(updated_at: :desc) }
 
@@ -12,10 +12,10 @@ class Pharmacy < ApplicationRecord
     company_name
   end
 
-  # mapping do
-  #   indexes :email, type: :string, null_value: '', index: :not_analyzed
-  #   indexes :code, type: :string
-  # end
+  mapping do
+    indexes :email, type: :string, null_value: '', index: :not_analyzed
+    indexes :code, type: :string
+  end
 
   def as_indexed_json(options={})
     self.as_json(

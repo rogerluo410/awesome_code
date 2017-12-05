@@ -1,6 +1,6 @@
 module Devices
   class Register
-    # include Serviceable
+    include Serviceable
 
     validates! :platform, inclusion: { in: Device.platforms.keys, message: "is invalid" }
     validates! :token, presence: true

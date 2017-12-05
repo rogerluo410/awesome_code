@@ -1,5 +1,5 @@
 class Doctor < User
-  # include Searchable
+  include Searchable
 
   has_one :doctor_profile, foreign_key: :user_id
   has_many :appointment_settings, foreign_key: :user_id
@@ -43,13 +43,13 @@ class Doctor < User
     appointments.with_status(:finished).count
   end
 
-  # mapping do
-  #   indexes :local_timezone,  :index => :not_analyzed, :type => 'string'
-  #   indexes :appointment_settings,  type: 'nested' do
-  #     indexes :start_time, :index => :not_analyzed, :type => 'string'
-  #     indexes :end_time, :index => :not_analyzed, :type => 'string'
-  #   end
-  # end
+  mapping do
+    indexes :local_timezone,  :index => :not_analyzed, :type => 'string'
+    indexes :appointment_settings,  type: 'nested' do
+      indexes :start_time, :index => :not_analyzed, :type => 'string'
+      indexes :end_time, :index => :not_analyzed, :type => 'string'
+    end
+  end
 
   def as_indexed_json(options={})
     self.as_json(
