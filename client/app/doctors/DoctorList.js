@@ -7,6 +7,10 @@ DoctorList.propTypes = {
   appoint: PropTypes.func.isRequired,
 }
 
+showContent() {
+  
+}
+
 export default function DoctorList({ doctorList, totalCount, appoint }) {
   return (
     <div>

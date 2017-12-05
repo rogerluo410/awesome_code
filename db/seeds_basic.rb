@@ -8,6 +8,5 @@ admin = Admin.new(email: 'admin@example.com', password: 'password')
 admin.skip_confirmation!
 admin.save!
 
-
 puts 'Initialize db fixtures'
 Rake::Task['import:db:fixtures:load_with_csv'].invoke

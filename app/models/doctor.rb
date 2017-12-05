@@ -1,5 +1,5 @@
 class Doctor < User
-  include Searchable
+  # include Searchable
 
   has_one :doctor_profile, foreign_key: :user_id
   has_many :appointment_settings, foreign_key: :user_id

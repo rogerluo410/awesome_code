@@ -7,6 +7,7 @@ function mapStateToProps(state) {
   return {
     doctorList: getDoctorsSelector(state),
     totalCount: getDoctorsTotalCountSelector(state),
+    isSignedIn: state.auth.isSignedIn
   }
 }
 

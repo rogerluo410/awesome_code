@@ -1,5 +1,5 @@
 class Pharmacy < ApplicationRecord
-  include Searchable
+  # include Searchable
 
   default_scope { order(updated_at: :desc) }
 
